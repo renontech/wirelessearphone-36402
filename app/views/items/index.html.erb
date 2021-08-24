@@ -1,7 +1,13 @@
 <header class='top-page-header'>
   <h1 class='top-logo'>Wireless.com</h1>
   <div class='sign-btn'>
-    新規登録/ログイン
+  <% if user_signed_in? %>
+    <%= current_user.nickname %>/
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to '新規登録', new_user_registration_path %>/
+    <%= link_to 'ログイン', new_user_session_path %>
+  <% end %>
   </div>
 </header>
 
