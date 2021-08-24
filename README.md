@@ -1,24 +1,55 @@
-# README
+# データベース設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## itemsテーブル
 
-Things you may want to cover:
+| Column | Type    | Option      |
+| ------ | ------- | ----------- |
+| name   | string  | null: false |
+| price  | integer | null: false |
+| maker  | string  | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+has_many :reviews
 
-* Configuration
+## reviewsテーブル
 
-* Database creation
+| Column  | Type        | Option                          |
+| ------- | ----------- | ------------------------------- |
+| title   | string      | null: false                     |
+| text    | string      | null: false                     |
+| point   | integer     | null: false                     |
+| user_id | references  | null: false, foreign_key: true  |
+| item_id | references  | null: false, foreign_key: true  |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+belongs_to :user
+belongs_to :item
+has_many :comments
 
-* Services (job queues, cache servers, search engines, etc.)
+## commentsテーブル
 
-* Deployment instructions
+| Column    | Type        | Option                          |
+| -------   | ----------- | ------------------------------- |
+| text      | string      | null: false                     |
+| user_id   | references  | null: false, foreign_key: true  |
+| review_id | references  | null: false, foreign_key: true  |
 
-* ...
+### Association
+
+belongs_to :user
+belongs_to :review
+
+## usersテーブル
+
+| Column             | Type   | Option      |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+
+### Association
+
+has_many :reviews
+has_many :comments
