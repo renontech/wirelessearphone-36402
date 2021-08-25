@@ -4,4 +4,5 @@ class Item < ApplicationRecord
     validates :price
     validates :maker
   end
+  has_one_attached :image
 end
