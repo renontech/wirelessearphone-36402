@@ -1,0 +1,42 @@
+<div class="items-regis-main">
+  <h2 class="items-regis-title">イヤホンの情報を入力</h2>
+  <%= form_with model: @item, local: true do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        イヤホン画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        製品名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :name, class:"items-text", id:"item-name", placeholder:"製品名（必須 40文字まで)", maxlength:"40" %>
+      <div class="maker-content">
+        メーカー
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :maker, class:"maker-text", id:"item-maker", placeholder:"例) メーカー名" %>
+      <div class="price-content">
+        <div class="price-text">
+          <span>価格</span>
+          <span class="indispensable">必須</span>
+        </div>
+        <span class="price-yen">¥</span>
+        <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）30000" %>
+      </div>
+    </div>
+    <div class="regis-btn-contents">
+      <%= f.submit "登録する" ,class:"regis-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+</div>
