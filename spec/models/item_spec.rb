@@ -13,6 +13,15 @@ RSpec.describe Item, type: :model do
         @item.price = 29999
         expect(@item).to be_valid
       end
+      it 'sound, anc, ambient, type, size, codecが空でも登録できる' do
+        @item.sound = ''
+        @item.anc = ''
+        @item.ambient = ''
+        @item.type = ''
+        @item.size = ''
+        @item.codec = ''
+        expect(@item).to be_valid
+      end
     end
     context '登録できない時' do
       it 'nameが空だと登録できない' do
