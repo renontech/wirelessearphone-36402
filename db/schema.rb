@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 2021_08_25_104830) do
     t.string "name", null: false
     t.integer "price", null: false
     t.string "maker", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "sound"
     t.string "anc"
     t.string "ambient"
     t.string "type"
     t.string "size"
     t.string "codec"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
