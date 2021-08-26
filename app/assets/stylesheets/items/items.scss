@@ -1,3 +1,26 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-page-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.top-logo {
+  background-color: lightcoral;
+  width: 80vw;
+  padding: 5px;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: black;
+}
+
+.sign-btn {
+  background-color: lightyellow;
+  width: 20vw;
+  text-align: right;
+}
