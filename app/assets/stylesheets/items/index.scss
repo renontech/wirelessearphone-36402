@@ -1,0 +1,85 @@
+.top-page-body {
+  background-color: lightgrey;
+}
+
+.top-page-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.top-logo {
+  background-color: lightcoral;
+  width: 80vw;
+  padding: 5px;
+}
+
+.sign-btn {
+  background-color: lightyellow;
+  width: 20vw;
+  text-align: right;
+}
+
+.items {
+  background-color: lightseagreen;
+  padding: 20px;
+  margin: 20px;
+  width: 50vw;
+}
+
+.item-link {
+  text-decoration: none;
+  color: black;
+}
+
+.item {
+  background-color: lightskyblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 200px;
+}
+
+.item-image {
+  background-color: lightyellow;
+  width: 20%;
+  margin: 20px;
+  height: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.image_photo {
+  width: 100%;
+  height: auto;
+}
+
+.item-info {
+  background-color: lightpink;
+  width: 80%;
+  margin-right: 20px;
+  height: 90%;
+}
+
+.item-maker {
+  background-color: lime;
+}
+
+.item-name {
+  background-color: orange;
+}
+
+.review-info {
+  background-color: orchid;
+  display: flex;
+  justify-content: center;
+}
+
+.item-price {
+  background-color: royalblue;
+}
+
+.top-page-footer {
+  background-color: lightsalmon;
+}
