@@ -1,50 +1,52 @@
-<body class='top-page-body'>
-  <header class='top-page-header'>
-    <h1 class='top-logo'>Wireless.com</h1>
-    <div class='sign-btn'>
-    <% if user_signed_in? %>
-      <%= current_user.nickname %>/
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to '新規登録', new_user_registration_path %>/
-      <%= link_to 'ログイン', new_user_session_path %>
-    <% end %>
-    </div>
-  </header>
+<header class='top-page-header'>
+  <h1 class='top-logo'>Wireless.com</h1>
+  <div class='sign-btn'>
+  <% if user_signed_in? %>
+    <%= current_user.nickname %>/
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to '新規登録', new_user_registration_path %>/
+    <%= link_to 'ログイン', new_user_session_path %>
+  <% end %>
+  </div>
+</header>
 
+<div class='top-page-body'>
   <% if user_signed_in? %>
     <div class='regis-item'>
       <%= link_to 'イヤホンを追加する', new_item_path %>
     </div>
   <% end %>
 
-<%# イヤホン一覧 %>
+  <%# イヤホン一覧 %>
   <div class='items'>
     <% @items.each do |item| %>
-      <div class='item'>
-        <div class='item-image'>
-          <%= image_tag item.image, class:"image_photo" if item.image.attached? %>
-        </div>
-        <div class='item-info'>
-          <span class='item-maker'>
-            <%= item.maker %>
-          </span>
-          <h2 class='item-name'>
-            <%= item.name %>
-          </h2>
-          <div class='review-info'>
-            <div class='review-point-average'>4.9pt</div>
-            <div class='review-quantity'>(107人)</div>
+      <%= link_to item_path(item.id), class:"item-link" do %>
+        <div class='item'>
+          <div class='item-image'>
+            <%= image_tag item.image, class:"image_photo" if item.image.attached? %>
           </div>
-          <div class='item-price'>
-            <%= item.price.to_s(:delimited) %>円
+          <div class='item-info'>
+            <span class='item-maker'>
+              <%= item.maker %>
+            </span>
+            <h2 class='item-name'>
+              <%= item.name %>
+            </h2>
+            <div class='review-info'>
+              <div class='review-point-average'>評価平均点数(pt)</div>
+              <div class='review-quantity'>　(評価数(人))</div>
+            </div>
+            <div class='item-price'>
+              ¥<%= item.price.to_s(:delimited) %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
-<%# /イヤホン一覧 %>
+  <%# /イヤホン一覧 %>
+</div>
 
-  <footer class='top-page-footer'>
-  </footer>
-</body>
+<footer class='top-page-footer'>
+</footer>

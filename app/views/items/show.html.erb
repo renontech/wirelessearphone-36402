@@ -1,0 +1,31 @@
+<div class='show-main'><h1>基本情報</h1>
+  <div class='basic-info'>
+    <div class='image'>
+      <%= image_tag @item.image, class:'photo' if @item.image.attached? %>
+    </div>
+    <div class='text'>
+      <h4 class='maker'><%= @item.maker %></h4>
+      <h2 class='name'><%= @item.name %></h2>
+      <h3 class='price'>¥<%= @item.price.to_s(:delimited) %></h3>
+      <div class='point'></div>
+    </div>
+  </div>
+  <div class='detail-info'>
+    <h1 class='table-title'>詳細情報</h1>
+    <table border='1', width='70%', class='table'>
+      <tr><td>名前</td><td><%= @item.name %></td></tr>
+      <tr><td>価格</td><td><%= @item.price %></td></tr>
+      <tr><td>メーカー</td><td><%= @item.maker %></td></tr>
+      <tr><td>音質</td><td><%= @item.sound%></td></tr>
+      <tr><td>ノイキャン</td><td><%= @item.anc %></td></tr>
+      <tr><td>外音取り込み</td><td><%= @item.ambient %></td></tr>
+      <tr><td>型</td><td><%= @item.type %></td></tr>
+      <tr><td>サイズ</td><td><%= @item.size %></td></tr>
+      <tr><td>コーデック</td><td><%= @item.codec %></td></tr>
+    </table>
+  </div>
+  <div class='reviews'><h1>レビュー 一覧</h1>
+    <%# 繰り返し処理でレビューを表示させる %>
+    <div class='review'>レビュー</div>
+  </div>
+</div>

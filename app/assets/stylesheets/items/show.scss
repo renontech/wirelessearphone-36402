@@ -1,0 +1,60 @@
+.show-main {
+  background-color: lightseagreen;
+  padding: 20px;
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.basic-info {
+  background-color: lightskyblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 500px;
+}
+
+.image {
+  background-color: lightyellow;
+  width: 40%;
+  margin: 30px;
+  height: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.photo {
+  width: 100%;
+}
+
+.text {
+  background-color: lightpink;
+  width: 60%;
+  margin-right: 20px;
+  height: 90%;
+}
+
+.maker {
+  background-color: lime;
+}
+
+.name {
+  background-color: orange;
+}
+
+.price {
+  background-color: royalblue;
+}
+
+.point {
+  background-color: orchid;
+  display: flex;
+  justify-content: center;
+}
+
+.table-title {
+  margin: 0 auto 0 230px;
+}
+
+.table {
+  margin: 0 auto;
+}
