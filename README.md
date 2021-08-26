@@ -2,11 +2,17 @@
 
 ## itemsテーブル
 
-| Column | Type    | Option      |
-| ------ | ------- | ----------- |
-| name   | string  | null: false |
-| price  | integer | null: false |
-| maker  | string  | null: false |
+| Column  | Type    | Option      |
+| ------- | ------- | ----------- |
+| name    | string  | null: false |
+| price   | integer | null: false |
+| maker   | string  | null: false |
+| sound   | string  |             |
+| anc     | string  |             |
+| ambient | string  |             |
+| type    | string  |             |
+| size    | string  |             |
+| codec   | string  |             |
 
 ### Association
 
