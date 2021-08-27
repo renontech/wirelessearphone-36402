@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
-before_action :item_find
-before_action :authenticate_user!
+  before_action :item_find
+  before_action :authenticate_user!
+  # before_action :redirect_resque
 
   def new
     @review = Review.new
@@ -24,4 +25,13 @@ before_action :authenticate_user!
   def item_find
     @item = Item.find(params[:item_id])
   end
+
+  # def redirect_resque
+  #   begin
+  #     @item = Item.find(params[:item_id])
+  #   rescue
+  #     render :new
+  #   end
+  # end
+
 end
