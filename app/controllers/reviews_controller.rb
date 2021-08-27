@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 before_action :item_find
+before_action :authenticate_user!
 
   def new
     @review = Review.new
