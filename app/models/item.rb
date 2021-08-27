@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  has_many :reviews
   with_options presence: true do
     validates :name
     validates :maker

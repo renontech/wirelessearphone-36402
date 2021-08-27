@@ -20,6 +20,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    # @review = Review.find(1)
+    @reviews = Review.order('created_at DESC')
   end
 
   private

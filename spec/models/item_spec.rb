@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   describe 'イヤホン登録機能' do
-  before do
-    @item = FactoryBot.build(:item)
-  end
+    before do
+      @item = FactoryBot.build(:item)
+    end
     context '登録できる時' do
       it '全ての項目を適切に入力すれば登録できる' do
         expect(@item).to be_valid

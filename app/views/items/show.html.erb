@@ -27,7 +27,14 @@
     </table>
   </div>
   <div class='reviews'><h1>レビュー 一覧</h1>
+    <%= link_to 'レビューを投稿する', new_item_review_path(@item.id), class:'review-link' %>
     <%# 繰り返し処理でレビューを表示させる %>
-    <div class='review'>レビュー</div>
+    <% @reviews.each do |review| %>
+    <div class='review'>
+      <%= review.point if Review.exists? %>
+      <%= review.title if Review.exists? %>
+      <%= review.text if Review.exists? %>
+    </div>
+    <% end %>
   </div>
 </div>
