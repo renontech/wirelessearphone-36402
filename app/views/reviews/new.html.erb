@@ -2,6 +2,7 @@
 
 <div class='review-body'>
 <%= form_with model: [@item, @review], local: true do |f| %>
+<%= render 'shared/error_messages', model:f.object %>
   <div class='item-name-parent'>
     <div class='product-name'>製品名</div>
     <div class='review-item-name'><%= @item.name %></div>
@@ -31,7 +32,7 @@
   </div>
   <div class='submit'>
     <%= f.submit "投稿する" ,class:"submit-btn" %>
-    <%= link_to 'もどる', item_path(@item.id), class:"back-btn" %>
+    <%= link_to 'イヤホン詳細へもどる', item_path(@item.id), class:"back-btn" %>
   </div>
 <% end %>
 </div>
