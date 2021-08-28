@@ -1,7 +1,7 @@
 <%= render 'shared/header' %>
 
 <div class='review-body'>
-<%= link_to 'イヤホン詳細へもどる', item_path(@item.id), class:"back-btn" %>
+<%= link_to 'イヤホン詳細へもどる', item_path(@item.id), class:"back-btn link" %>
 <%= form_with model: [@item, @review], local: true do |f| %>
 <%= render 'shared/error_messages', model:f.object %>
   <div class='item-name-parent'>

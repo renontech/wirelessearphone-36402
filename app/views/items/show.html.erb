@@ -27,7 +27,7 @@
     </table>
   </div>
   <div class='reviews'><h1>レビュー 一覧</h1>
-    <%= link_to 'レビューを投稿する', new_item_review_path(@item.id), class:'review-link' %>
+    <%= link_to 'レビューを投稿する', new_item_review_path(@item.id), class:'review-link link' %>
     <%# 繰り返し処理でレビューを表示させる %>
     <% @reviews.each do |review| %>
     <div class='review'>
@@ -36,8 +36,8 @@
       <%= review.text if Review.exists? %>
       <% if user_signed_in? %>
         <% if review.user_id == current_user.id %>
-        <%= link_to '編集する', edit_item_review_path(item_id: @item.id, id: review.id) %>
-        <%= link_to '削除する', item_review_path(item_id: @item.id, id: review.id), method: :delete %>
+        <%= link_to '編集する', edit_item_review_path(item_id: @item.id, id: review.id), class:'edit-btn link' %>
+        <%= link_to '削除する', item_review_path(item_id: @item.id, id: review.id), method: :delete, class:'delete-btn link' %>
         <% end %>
       <% end %>
     </div>
