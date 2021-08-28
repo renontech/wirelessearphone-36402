@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :item_find
   before_action :authenticate_user!
+  before_action :review_find, only: [:edit, :update]
   # before_action :redirect_resque
 
   def new
@@ -17,7 +18,6 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
 
   def update
@@ -36,6 +36,10 @@ class ReviewsController < ApplicationController
 
   def item_find
     @item = Item.find(params[:item_id])
+  end
+
+  def review_find
+    @review = Review.find(params[:id])
   end
 
   # def redirect_resque
