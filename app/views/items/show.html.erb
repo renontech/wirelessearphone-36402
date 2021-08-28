@@ -34,7 +34,7 @@
       <%= review.point if Review.exists? %>
       <%= review.title if Review.exists? %>
       <%= review.text if Review.exists? %>
-      <%= link_to 'レビューを編集する', edit_item_review_path(item_id: @item.id, id: review.id) %>
+      <%= link_to 'レビューを編集する', edit_item_review_path(item_id: @item.id, id: review.id) if review.user_id == current_user.id %>
     </div>
     <% end %>
   </div>

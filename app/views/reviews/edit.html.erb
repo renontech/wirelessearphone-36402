@@ -1,1 +1,38 @@
-edit-page
+<%= render 'shared/header' %>
+
+<div class='review-body'>
+<%= link_to 'イヤホン詳細へもどる', item_path(@item.id), class:"back-btn" %>
+<%= form_with model: [@item, @review], local: true do |f| %>
+<%= render 'shared/error_messages', model:f.object %>
+  <div class='item-name-parent'>
+    <div class='product-name'>製品名</div>
+    <div class='review-item-name'><%= @item.name %></div>
+  </div>
+  <div class='reviewer-parent'>
+    <div class='reviewer'>レビュワー</div>
+    <div class='review-nickname'><%= current_user.nickname %></div>
+  </div>
+  <div class='point-parent'>
+    <div class='point-name'>点数</div>
+    <div class='point-select'>
+      <%= f.text_field :point, class:'point-form-with', placeholder:'ここにポイント選ぶバー入れる' %>
+    </div>
+  </div>
+  <div class='review-title-parent'>
+    <div>レビュータイトル</div>
+    <div>必須</div>
+    <div class='title-form'>
+      <%= f.text_field :title, class:'title-form-with', placeholder:'タイトルを記入してください' %>
+    </div>
+  </div>
+  <div class='review-text-parent'>
+    <p class='text-intro'>レビューを記入</p>
+    <div class='text-form'>
+      <%= f.text_area :text, class:'text-form-with', placeholder:'レビューを記入してください' %>
+    </div>
+  </div>
+  <div class='submit'>
+    <%= f.submit "投稿する" ,class:"submit-btn" %>
+  </div>
+<% end %>
+</div>
