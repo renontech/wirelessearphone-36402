@@ -35,7 +35,10 @@
       <%= review.title if Review.exists? %>
       <%= review.text if Review.exists? %>
       <% if user_signed_in? %>
-      <%= link_to 'レビューを編集する', edit_item_review_path(item_id: @item.id, id: review.id) if review.user_id == current_user.id %>
+        <% if review.user_id == current_user.id %>
+        <%= link_to '編集する', edit_item_review_path(item_id: @item.id, id: review.id) %>
+        <%= link_to '削除する', item_review_path(item_id: @item.id, id: review.id), method: :delete %>
+        <% end %>
       <% end %>
     </div>
     <% end %>
