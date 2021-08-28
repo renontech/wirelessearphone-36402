@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :item_find
   before_action :authenticate_user!
-  before_action :review_find, only: [:edit, :update]
-  before_action :access_block, only: [:edit, :update]
+  before_action :review_find, only: [:edit, :update, :destroy]
+  before_action :access_block, only: [:edit, :update, :destroy]
   # before_action :redirect_resque
 
   def new
@@ -26,6 +26,12 @@ class ReviewsController < ApplicationController
       redirect_to item_path(@item.id)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @review.destroy
+      redirect_to item_path(@item.id)
     end
   end
 
