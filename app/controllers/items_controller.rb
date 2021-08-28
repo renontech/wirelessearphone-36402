@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order('created_at DESC')
+    @reviews = Item.order('created_at DESC')
   end
 
   def new
@@ -20,8 +21,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # @review = Review.find(1)
-    @reviews = Review.order('created_at DESC')
+    @reviews = @item.reviews.includes(:user)
   end
 
   private
