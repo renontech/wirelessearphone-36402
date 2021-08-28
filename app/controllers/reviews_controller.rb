@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :item_find
   before_action :authenticate_user!
   before_action :review_find, only: [:edit, :update]
+  before_action :access_block, only: [:edit, :update]
   # before_action :redirect_resque
 
   def new
@@ -40,6 +41,12 @@ class ReviewsController < ApplicationController
 
   def review_find
     @review = Review.find(params[:id])
+  end
+
+  def access_block
+    if @review.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   # def redirect_resque
