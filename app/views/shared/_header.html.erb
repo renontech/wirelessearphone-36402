@@ -3,7 +3,7 @@
     <%= link_to 'Wireless.com', root_path, class:'logo-link' %></h1>
   <div class='sign-btn'>
   <% if user_signed_in? %>
-    <%= current_user.nickname %>｜｜
+    <%= link_to current_user.nickname, user_path(current_user.id), class:'link' %>｜｜
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'link' %>
   <% else %>
     <%= link_to '新規登録', new_user_registration_path, class:'link' %>/
