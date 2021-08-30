@@ -32,6 +32,10 @@ class ReviewsController < ApplicationController
   def destroy
     if @review.destroy
       redirect_to item_path(@item.id)
+      flash[:destroy] = 'レビューを削除しました。'
+    else
+      render 'items#show'
+      flash.now[:undestroy] = 'レビューを削除できませんでした。'
     end
   end
 
