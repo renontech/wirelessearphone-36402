@@ -1,15 +1,6 @@
-<%= render 'shared/header' %>
-
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-<%# エラーフラッシュメッセージ %>
-  <div class='login-flash-message'>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-<%# /エラーフラッシュメッセージ %>
 
   <div class="field">
     <%= f.label :email %><br />

@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: 'イヤホンを追加しました。'
     else
+      flash.now[:alert] = 'イヤホンを追加できませんでした。'
       render :new
     end
   end

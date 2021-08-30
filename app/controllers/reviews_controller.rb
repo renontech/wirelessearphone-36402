@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to item_path(@item.id), notice: 'レビューを投稿しました。'
     else
+      flash.now[:alert] = 'レビューを投稿できませんでした。'
       render :new
     end
   end
@@ -25,8 +26,8 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       redirect_to item_path(@item.id), notice: 'レビューを更新しました。'
     else
+      flash.now[:alert] = 'レビューを更新できませんでした。'
       render :edit
-      flash.now[:unupdate] = 'レビューを更新できませんでした。'
     end
   end
 
@@ -34,8 +35,8 @@ class ReviewsController < ApplicationController
     if @review.destroy
       redirect_to item_path(@item.id), notice: 'レビューを削除しました。'
     else
+      flash.now[:alert] = 'レビューを削除できませんでした。'
       render 'items#show'
-      flash.now[:undestroy] = 'レビューを削除できませんでした。'
     end
   end
 
