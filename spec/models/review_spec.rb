@@ -18,42 +18,42 @@ RSpec.describe Review, type: :model do
       it 'titleが空だと投稿出来ない' do
         @review.title = ''
         @review.valid?
-        expect(@review.errors.full_messages).to include("Title can't be blank")
+        expect(@review.errors.full_messages).to include("Titleを入力してください")
       end
       it 'textが空だと投稿出来ない' do
         @review.text = ''
         @review.valid?
-        expect(@review.errors.full_messages).to include("Text can't be blank")
+        expect(@review.errors.full_messages).to include("Textを入力してください")
       end
       it 'pointが空だと投稿出来ない' do
         @review.point = ''
         @review.valid?
-        expect(@review.errors.full_messages).to include("Point can't be blank")
+        expect(@review.errors.full_messages).to include("Pointを入力してください")
       end
       it 'pointが半角数値でなければ投稿出来ない' do
         @review.point = '１０'
         @review.valid?
-        expect(@review.errors.full_messages).to include("Point is not a number")
+        expect(@review.errors.full_messages).to include("Pointは数値で入力してください")
       end
       it 'pointに小数点が含まれていると投稿出来ない' do
-        @review.point = 5.5
+        @review.point = 2.5
         @review.valid?
-        expect(@review.errors.full_messages).to include("Point must be an integer")
+        expect(@review.errors.full_messages).to include("Pointは整数で入力してください")
       end
       it 'pointが1未満の半角数値だと投稿できない' do
         @review.point = -1
         @review.valid?
-        expect(@review.errors.full_messages).to include("Point must be greater than or equal to 0")
+        expect(@review.errors.full_messages).to include("Pointは0以上の値にしてください")
       end
-      it 'pointが10を超える半角数値だと投稿できない' do
-        @review.point = 11
+      it 'pointが5を超える半角数値だと投稿できない' do
+        @review.point = 6
         @review.valid?
-        expect(@review.errors.full_messages).to include("Point must be less than or equal to 10")
+        expect(@review.errors.full_messages).to include("Pointは5以下の値にしてください")
       end
       it 'userが紐づいていなければ投稿出来ない' do
         @review.user = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include("User must exist")
+        expect(@review.errors.full_messages).to include("Userを入力してください")
       end
     end
   end
