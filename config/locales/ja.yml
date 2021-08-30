@@ -18,6 +18,10 @@ ja:
         size: サイズ
         codec: コーデック
         image: 画像
+      review:
+        title: タイトル
+        text: 本文
+        point: 点数
   date:
     abbr_day_names:
     - 日
