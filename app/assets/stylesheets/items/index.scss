@@ -55,18 +55,9 @@
 .review-info {
   // background-color: orchid;
   display: flex;
-  justify-content: center;
 }
 
-.item-price {
-  // background-color: royalblue;
-}
-
-.top-page-footer {
-  // background-color: lightsalmon;
-}
-
-// パクリ評価表示
+// 評価表示
 .average-score {
   display: flex; // ★と点数を横並びにする
   justify-content: center;
@@ -76,8 +67,7 @@
   position: relative;
   width: 5em;
   height: 1em;
-  font-size: 17px;
-
+  font-size: 25px;
 }
 
 .star-rating-front {
@@ -92,4 +82,18 @@
 
 .star-rating-back {
   color: #ccc;
+}
+// /評価表示
+
+.item-price {
+  // background-color: royalblue;
+}
+
+.top-page-footer {
+  // background-color: lightsalmon;
+}
+
+.card-group {
+  display: inline-block;
+  justify-content: space-around;
 }

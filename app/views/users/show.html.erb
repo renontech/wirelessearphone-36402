@@ -1,1 +1,24 @@
-<h1><%= @user.nickname %>のユーザーページ</h1>
+<div class="user-show">
+  <div class="user-show-title">
+    <h3><%= @user.nickname %>のユーザーページ</h3>
+    <div class="user-show-info">会員情報</div>
+    <div class="user-show-review-title">レビュー 一覧</div>
+  </div>
+  <% @reviews.each do |review| %>
+    <div class='review'>
+      <% if Review.exists? %>
+        <div class="show-review-item"><%= link_to review.item.name, item_path(id: review.item_id) %></div>
+        <div class="show-review-title"><%= review.title %></div>
+        <div class="show-review-point"><%= review.point %></div>
+        <div class="show-review-text"><%= review.text %></div>
+      <% end %>
+      <% if user_signed_in? %>
+        <% if review.user_id == current_user.id %>
+        <%= link_to '編集する', edit_item_review_path(item_id: review.item_id, id: review.id), class:'edit-btn link' %>
+        <%= link_to '削除する', item_review_path(item_id: review.item_id, id: review.id), method: :delete, class:'delete-btn link' %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="user-edit-btn">編集する</div>
+</div>

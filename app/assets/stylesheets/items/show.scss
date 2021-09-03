@@ -52,10 +52,19 @@
 }
 
 .table-title {
-  margin: 0 auto 0 230px;
+  // margin: 0 auto 0 230px;
 }
 
 .table {
   margin: 0 auto;
 }
 
+.review-info {
+  font-size: 20px;
+}
+
+.show-review-text {
+  width: 500px;
+  height: 250px;
+  border: 1px solid black;
+}

@@ -11,12 +11,13 @@ ja:
         name: 製品名
         price: 価格
         maker: メーカー
-        sound: 音質
+        driver: ドライバー
         anc: アクティブノイズキャンセリング
         ambient: 外音取り込み
-        type: 型
-        size: サイズ
+        bluetooth: Bluetooth
+        weight: 重量
         codec: コーデック
+        date: 発売日
         image: 画像
       review:
         title: タイトル

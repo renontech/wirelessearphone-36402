@@ -13,9 +13,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     if @item.save
-      redirect_to root_path, notice: 'イヤホンを追加しました。'
+      redirect_to root_path, notice: 'イヤホンの追加に成功しました。'
     else
-      flash.now[:alert] = 'イヤホンを追加できませんでした。'
+      flash.now[:alert] = 'イヤホンの追加に失敗しました。'
       render :new
     end
   end
@@ -28,6 +28,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :maker, :sound, :anc, :ambient, :type, :size, :codec, :image)
+    params.require(:item).permit(:name, :price, :maker, :driver, :anc, :ambient, :bluetooth, :weight, :codec, :date, :image)
   end
 end

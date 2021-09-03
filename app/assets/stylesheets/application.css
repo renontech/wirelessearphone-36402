@@ -15,7 +15,7 @@
  */
  
 /* リセットCSS */
-body {
+/* body {
   font-size: 14px;
   color: #333;
   margin: 0 auto;
@@ -28,25 +28,13 @@ h1,h2,h3,h4,h5,h6,p {
 ul,li {
   padding: 0;
   margin: 0;
-}
+} */
+/* /リセットCSS */
 
 .link {
   text-decoration: none;
-  color: blue;
 }
 
-.alert {
-	text-align: center;
-}
-
-.alert-info {
-  background-color: #bde9ff;
-  border-color: #bde9ff;
-  color: #4c6977;
-}
- 
-.alert-danger {
-  background-color: #f3c0c0;
-  border-color: #f3c0c0;
-  color: #3e3a3a;
-}
+/* .error-messages {
+  text-align: center;
+} */

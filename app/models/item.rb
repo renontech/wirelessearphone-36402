@@ -1,9 +1,11 @@
 class Item < ApplicationRecord
   has_many :reviews
   with_options presence: true do
-    validates :name
     validates :maker
     validates :image
+    with_options uniqueness: true do
+      validates :name
+    end
     with_options numericality: {only_integer: true} do
       validates :price
     end
