@@ -1,4 +1,6 @@
 <header class='top-page-header'>
+<%
+=begin%>
   <h1 class='top-logo'>
     <%= link_to 'Wireless.com', root_path, class:'logo-link' %></h1>
   <div class='sign-btn'>
@@ -10,4 +12,41 @@
     <%= link_to 'ログイン', new_user_session_path, class:'link' %>
   <% end %>
   </div>
+<%
+=end%>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <%= link_to 'Wireless.com', root_path, class:'navbar-brand' %>
+        <%# <a class="navbar-brand" href="#">Hidden brand</a> %>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to current_user.nickname, user_path(current_user.id), class:'nav-link' %>
+            <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link' %>
+            <%# <a class="nav-link" href="#">Link</a> %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to '新規登録', new_user_registration_path, class:'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログイン', new_user_session_path, class:'nav-link' %>
+          </li>
+          <% end %>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 </header>

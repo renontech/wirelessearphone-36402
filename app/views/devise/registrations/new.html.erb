@@ -1,36 +1,29 @@
-<%= render 'shared/header' %>
+<div class="login">
+  <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+    <h2 class="legend">ユーザー新規登録</h2>
+    <%= render "shared/error_messages", model: f.object %>
+    <br>
 
-<h2>新規登録</h2>
+    <div class="field input">
+      <%= f.text_field :nickname, maxlength:"12", autofocus: true, autocomplete: "nickname", placeholder:"ニックネーム" %>
+    </div>
 
-<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
-  <%= render "shared/error_messages", model: f.object %>
+    <div class="field input">
+      <%= f.email_field :email, autocomplete: "email", placeholder:"Eメール" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, maxlength:"12", autofocus: true, autocomplete: "nickname" %>
-  </div>
+    <div class="field input">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード(英数字6文字以上)" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+    <div class="field input">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"パスワード(確認用)" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "shared/links" %>
+    <div class="actions">
+      <%= f.submit "→", class:"user-submit" %>
+    </div>
+  <% end %>
+  <br>
+  <%= render "shared/links" %>
+</div>

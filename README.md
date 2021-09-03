@@ -13,6 +13,7 @@
 | type    | string  |             |
 | size    | string  |             |
 | codec   | string  |             |
+| date    | date    |             |
 
 ### Association
 

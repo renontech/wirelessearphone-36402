@@ -12,8 +12,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     if @review.save
-      redirect_to item_path(@item.id)
+      redirect_to item_path(@item.id, anchor: 'reviews'), notice: 'レビューを投稿しました。'
     else
+      flash.now[:alert] = 'レビューを投稿できませんでした。'
       render :new
     end
   end
@@ -23,15 +24,19 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to item_path(@item.id)
+      redirect_to item_path(@item.id, anchor: 'reviews'), notice: 'レビューを更新しました。'
     else
+      flash.now[:alert] = 'レビューを更新できませんでした。'
       render :edit
     end
   end
 
   def destroy
     if @review.destroy
-      redirect_to item_path(@item.id)
+      redirect_to item_path(@item.id), notice: 'レビューを削除しました。'
+    else
+      flash.now[:alert] = 'レビューを削除できませんでした。'
+      render 'items#show'
     end
   end
 

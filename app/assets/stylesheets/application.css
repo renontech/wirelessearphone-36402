@@ -15,7 +15,7 @@
  */
  
 /* リセットCSS */
-body {
+/* body {
   font-size: 14px;
   color: #333;
   margin: 0 auto;
@@ -28,9 +28,13 @@ h1,h2,h3,h4,h5,h6,p {
 ul,li {
   padding: 0;
   margin: 0;
-}
+} */
+/* /リセットCSS */
 
 .link {
   text-decoration: none;
-  color: blue;
 }
+
+/* .error-messages {
+  text-align: center;
+} */

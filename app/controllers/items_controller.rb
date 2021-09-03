@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @items = Item.order('created_at DESC')
-    @reviews = Item.order('created_at DESC')
+    @items = Item.order('created_at DESC').includes(:reviews)
+    # @reviews = Item.order('created_at DESC')
   end
 
   def new
@@ -13,8 +13,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'イヤホンの追加に成功しました。'
     else
+      flash.now[:alert] = 'イヤホンの追加に失敗しました。'
       render :new
     end
   end
@@ -27,6 +28,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :maker, :sound, :anc, :ambient, :type, :size, :codec, :image)
+    params.require(:item).permit(:name, :price, :maker, :driver, :anc, :ambient, :bluetooth, :weight, :codec, :date, :image)
   end
 end

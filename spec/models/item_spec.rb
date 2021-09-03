@@ -27,27 +27,27 @@ RSpec.describe Item, type: :model do
       it 'nameが空だと登録できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name can't be blank")
+        expect(@item.errors.full_messages).to include("製品名を入力してください")
       end
       it 'makerが空だと登録出来ない' do
         @item.maker = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Maker can't be blank")
+        expect(@item.errors.full_messages).to include("メーカーを入力してください")
       end
       it 'priceが空だと登録出来ない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank")
+        expect(@item.errors.full_messages).to include("価格を入力してください")
       end
       it 'priceが半角数値のみでなければ登録出来ない' do
         @item.price = '２９９９９'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include("価格は数値で入力してください")
       end
       it 'imageが空だと登録出来ない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include("画像を入力してください")
       end
     end
   end

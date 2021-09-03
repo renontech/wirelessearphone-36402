@@ -37,12 +37,13 @@ ActiveRecord::Schema.define(version: 2021_08_26_121852) do
     t.string "name", null: false
     t.integer "price", null: false
     t.string "maker", null: false
-    t.string "sound"
+    t.string "driver"
     t.string "anc"
     t.string "ambient"
-    t.string "type"
-    t.string "size"
+    t.string "bluetooth"
+    t.string "weight"
     t.string "codec"
+    t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

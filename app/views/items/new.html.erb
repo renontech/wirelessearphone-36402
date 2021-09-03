@@ -1,5 +1,3 @@
-<%= render 'shared/header' %>
-
 <div class="items-regis-main">
   <h2 class="items-regis-title">イヤホンの情報を入力</h2>
   <%= form_with model: @item, local: true do |f| %>
@@ -21,20 +19,33 @@
         製品名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :name, class:"items-text", id:"item-name", placeholder:"製品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_field :name, class:"items-text", id:"item-name", placeholder:"(40文字まで)", maxlength:"40" %>
       <div class="maker-content">
         メーカー
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :maker, class:"maker-text", id:"item-maker", placeholder:"例) メーカー名" %>
+      <%= f.text_field :maker, class:"maker-text", id:"item-maker" %>
       <div class="price-content">
         <div class="price-text">
-          <span>価格</span>
+          <span>価格(¥)</span>
           <span class="indispensable">必須</span>
         </div>
-        <span class="price-yen">¥</span>
         <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）30000" %>
       </div>
+      <div class="sound-content">ドライバー</div>
+      <%= f.text_field :driver, class:"driver-text", id:"item-driver" %>
+      <div>ANC</div>
+      <%= f.text_field :anc, class:"anc-text", id:"item-anc" %>
+      <div>外音取り込み</div>
+      <%= f.text_field :ambient, class:"ambient-text", id:"item-ambient" %>
+      <div>Bluetoothバージョン</div>
+      <%= f.text_field :bluetooth, class:"bluetooth-text", id:"item-bluetooth" %>
+      <div>重量</div>
+      <%= f.text_field :weight, class:"weight-text", id:"item-weight", placeholder:"5g × 2" %>
+      <div>コーデック</div>
+      <%= f.text_field :codec, class:"codec-text", id:"item-codec", placeholder:"(例) SBC, AAC" %>
+      <div>発売日</div>
+      <%= f.date_select :date, class:"date-select", id:"item-date" %>
     </div>
     <div class="regis-btn-contents">
       <%= f.submit "登録する" ,class:"regis-btn" %>
