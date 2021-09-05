@@ -1,5 +1,9 @@
 class Item < ApplicationRecord
   has_many :reviews
+  has_one_attached :image
+  has_many :favorites
+  has_many :favorite_users, through: :favorites, source: :user
+  
   with_options presence: true do
     validates :maker
     validates :image
@@ -10,7 +14,6 @@ class Item < ApplicationRecord
       validates :price
     end
   end
-  has_one_attached :image
 
   def avg_score
     unless self.reviews.empty?

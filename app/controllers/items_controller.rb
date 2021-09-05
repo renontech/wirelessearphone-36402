@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  # before_action :set_item, only: [:like, :unlike]
 
   def index
     @items = Item.order('created_at DESC').includes(:reviews)
-    # @reviews = Item.order('created_at DESC')
   end
 
   def new
@@ -25,9 +25,24 @@ class ItemsController < ApplicationController
     @reviews = @item.reviews.includes(:user)
   end
 
+  # def like
+  #   current_user.favorite_items << @item
+  #   render 'favorite.js.erb'
+  # end
+
+  # def unlike
+  #   current_user.favorite_items.destroy(@item)
+  #   render 'favorite.js.erb'
+  # end
+
   private
 
   def item_params
     params.require(:item).permit(:name, :price, :maker, :driver, :anc, :ambient, :bluetooth, :weight, :codec, :date, :image)
   end
+
+  # def set_item
+  #   @item = Item.find_by(id: params[:item_id])
+  # end
+
 end
