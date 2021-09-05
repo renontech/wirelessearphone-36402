@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     # patch "like", "unlike", on: :member
     # get "favorite", on: :collection
+    collection do
+      get 'search'
+    end
   end
   resources :users, only: :show
 end

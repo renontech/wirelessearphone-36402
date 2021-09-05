@@ -38,4 +38,13 @@ class Item < ApplicationRecord
       0
     end
   end
+
+  def self.search(search)
+    if search != ""
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.order('created_at DESC').includes(:reviews)
+    end
+  end
+
 end

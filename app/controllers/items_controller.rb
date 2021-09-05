@@ -25,6 +25,10 @@ class ItemsController < ApplicationController
     @reviews = @item.reviews.includes(:user)
   end
 
+  def search
+    @items = Item.search(params[:keyword])
+  end
+
   # def like
   #   current_user.favorite_items << @item
   #   render 'favorite.js.erb'
