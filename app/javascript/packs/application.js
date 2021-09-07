@@ -8,9 +8,13 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 // require("../new")
-require("../favorite")
-require("../preview")
-// require('jquery')
+// require("../favorite")
+// require("../preview")
+// require("../compare")
+//= require_tree .
+//= require jquery
+//= require jquery-ujs
+//= require rails-ujs
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

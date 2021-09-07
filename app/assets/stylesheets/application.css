@@ -38,3 +38,27 @@ ul,li {
 /* .error-messages {
   text-align: center;
 } */
+
+.compare-form {
+  display: flex;
+  justify-content: right;
+}
+
+.form-select {
+  width: 30%;
+}
+
+.compare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item1 .item2 {
+  width: 50%;
+}
+
+.compare-photo {
+  width: 400px;
+  height: 400px;
+}

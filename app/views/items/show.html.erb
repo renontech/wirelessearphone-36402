@@ -24,6 +24,7 @@
       <div id="favorite-box">
         <%= render partial: 'shared/favorite', locals: {item: @item} %>
       </div>
+      <%= link_to '他のイヤホンと比較する', compare_item_path(@item.id) %>
     </div>
   </div>
   <div class='detail-info'>

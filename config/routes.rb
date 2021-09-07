@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    member do
+      get 'compare'
+      post 'compare'
+      get 'ajax'
+      post 'ajax'
+    end
   end
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
 end
