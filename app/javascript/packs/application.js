@@ -8,7 +8,6 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 // require("../new")
-// require("../favorite")
 // require("../preview")
 // require("../compare")
 //= require_tree .
