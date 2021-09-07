@@ -2,17 +2,17 @@ class FavoritesController < ApplicationController
   before_action :set_item
 
   def create
-    @favorite = Favorite.new(user_id: current_user.id, item_id: @item.id)
-    @favorite.save
-    redirect_to item_path(@item.id)
-    # render 'favorite.js.erb'
+    @favorite = Favorite.create(user_id: current_user.id, item_id: @item.id)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
-    @favorite = Favorite.find_by(user_id: current_user.id, item_id: @item.id)
-    @favorite.destroy
-    redirect_to item_path(@item.id)
-    # render 'favorite.js.erb'
+    @favorite = Favorite.find_by(user_id: current_user.id, item_id: @item.id).destroy
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

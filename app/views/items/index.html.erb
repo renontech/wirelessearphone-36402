@@ -8,7 +8,6 @@
       <%= link_to 'イヤホンを追加する', new_item_path, class:'link' %>
     </div>
   <% end %>
-  <%# イヤホン一覧 %>
   <div class='items'>
     <% @items.each do |item| %>
       <%= link_to item_path(item.id), class:"item-link" do %>
@@ -45,6 +44,5 @@
       <% end %>
     <% end %>
   </div>
-  <%# /イヤホン一覧 %>
 </div>
 
