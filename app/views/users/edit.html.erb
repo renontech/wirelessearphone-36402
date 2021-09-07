@@ -1,0 +1,6 @@
+<h1>プロフィール編集</h1>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div>ニックネーム<%= f.text_field :nickname %></div>
+  <div><%= f.submit "保存" %></div>
+<% end %>
