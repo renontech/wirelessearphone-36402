@@ -1,13 +1,15 @@
 <% if user_signed_in? %>
   <% if current_user.favorites.find_by(item_id: item.id) %>
-    <%= link_to 'お気に入りを解除♥', item_favorites_path(item.id), method: :delete, class: "favorite-btn", id:"favorite-btn" %>
-      <%= item.favorites.count %> 
+    <%= link_to item_favorites_path(item.id), method: :delete, class: "favorite-btn", id:"favorite-btn", remote: true do %>
+      <i class="fas fa-star"></i>お気に入り解除<%= item.favorites.count %>
+    <% end %>
   <% else %>
-    <%= link_to 'お気に入りに追加♡', item_favorites_path(item.id), method: :post, class: "favorite-btn", id:"favorite-btn" %>
-      <%= item.favorites.count %> 
+    <%= link_to item_favorites_path(item.id), method: :post, class: "favorite-btn", id:"favorite-btn", remote: true do %>
+      <i class="far fa-star"></i>お気に入り<%= item.favorites.count %> 
+    <% end %>
   <% end %>
 <% else %>
   <%= link_to new_user_session_path do%>
-    お気に入りに追加♡<%= item.favorites.count %>
+    <i class="far fa-star"></i>お気に入り<%= item.favorites.count %>
   <% end %>
 <% end %>

@@ -21,7 +21,7 @@
         <div class='review-quantity'>　(<%= @item.reviews_number %>人)</div>
       </div>
       <%# /評価表示 %>
-      <div id="favorite-box">
+      <div class="favorites" id="favorite_<%= @item.id %>">
         <%= render partial: 'shared/favorite', locals: {item: @item} %>
       </div>
       <%= link_to '他のイヤホンと比較する', compare_item_path(@item.id) %>
