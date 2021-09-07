@@ -1,6 +1,10 @@
 <div class="user-show">
   <div class="user-show-title">
-    <h3><%= @user.nickname %>のユーザーページ</h3>
+    <% if user_signed_in? && @user == current_user %>
+      <h3>マイページ</h3><%= link_to 'ユーザー情報を編集する', edit_user_path(current_user), class:"user-edit-btn" %>
+    <% else %>
+      <h3><%= @user.nickname %>さんのユーザーページ</h3>
+    <% end %>
     <div class="user-show-info">会員情報</div>
     <div class="user-show-review-title">レビュー 一覧</div>
   </div>
@@ -24,5 +28,4 @@
   <% @favorites.each do |favorite| %>
   <%= link_to favorite.item.name, item_path(id: favorite.item_id) %>
   <% end %>
-  <div class="user-edit-btn">ユーザー情報を編集する</div>
 </div>

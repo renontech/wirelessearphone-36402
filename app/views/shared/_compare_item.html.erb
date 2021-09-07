@@ -1,0 +1,25 @@
+<div class='detail-info'>
+  <div id='compare-test'><%= image_tag item.image, class:'compare-photo' %></div>
+  <div class='review-info'>
+    <div class="average-score mb-3">
+      <div class="star-rating ml-2">
+        <div class="star-rating-front" style="width: <%= item.avg_score_percentage %>">★★★★★</div>
+        <div class="star-rating-back">★★★★★</div>
+      </div>
+      <div class="average-score-display">（<%= item.avg_score %>点）</div>
+    </div>
+    <div class='review-quantity'>　(<%= item.reviews_number %>人)</div>
+  </div>
+  <table border='1', width='70%', class='table'>
+    <tr><td>名前</td><td><%= item.name %></td></tr>
+    <tr><td>価格</td><td>¥<%= item.price.to_s(:delimited) %></td></tr>
+    <tr><td>メーカー</td><td><%= item.maker %></td></tr>
+    <tr><td>ドライバー</td><td><%= item.driver %></td></tr>
+    <tr><td>ノイキャン</td><td><%= item.anc %></td></tr>
+    <tr><td>外音取り込み</td><td><%= item.ambient %></td></tr>
+    <tr><td>Bluetoothバージョン</td><td><%= item.bluetooth %></td></tr>
+    <tr><td>コーデック</td><td><%= item.codec %></td></tr>
+    <tr><td>重量</td><td><%= item.weight %></td></tr>
+    <tr><td>発売日</td><td><%= item.date %></td></tr>
+  </table>
+</div>

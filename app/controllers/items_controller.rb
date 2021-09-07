@@ -29,6 +29,20 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword])
   end
 
+  def compare
+    @item1 = Item.find(params[:id])
+    @items = Item.where.not(id: @item1.id)
+  end
+
+  def ajax
+    @selected_item = params[:num]
+    @second_item = Item.find(params[:num])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   # def like
   #   current_user.favorite_items << @item
   #   render 'favorite.js.erb'
