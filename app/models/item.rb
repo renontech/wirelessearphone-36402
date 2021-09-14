@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     end
   end
 
-  def avg_score
+  def avg_point
     unless self.reviews.empty?
       reviews.average(:point).round(1)
     else
@@ -23,7 +23,7 @@ class Item < ApplicationRecord
     end
   end
 
-  def avg_score_percentage
+  def review_point_percentage
     unless self.reviews.empty?
       reviews.average(:point).round(1).to_f*100/5
     else

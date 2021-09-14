@@ -1,14 +1,21 @@
 <div class='top-page-body'>
-  <%= form_with url: search_items_path, method: :get, local: true, class:"search-form" do |f| %>
-    <%= f.text_field :keyword, placeholder: "イヤホンを検索する", class: "search-input" %>
-    <%= f.submit "検索", class: "search-btn" %>
-  <% end %>
-  <% if user_signed_in? %>
-    <div class='regis-item'>
-      <%= link_to 'イヤホンを追加する', new_item_path, class:'link' %>
-    </div>
-  <% end %>
-  <div class='items'>
+  <div class="index-top-menu">
+    <%= form_with url: search_items_path, method: :get, local: true, class:"search-form row g-3 ml-5" do |f| %>
+      <div class="col-auto">
+        <%= f.text_field :keyword, placeholder: "イヤホンを検索する", class: "search-input form-control" %>
+      </div>
+      <div class="col-auto">
+        <%= f.submit "検索", class: "search-btn btn btn-secondary mb-3" %>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <div class='regis-item mr-5'>
+        <%= link_to 'イヤホンを追加する', new_item_path, class:'btn btn-outline-primary' %>
+      </div>
+    <% end %>
+  </div>
+  <%# 下のカードが一旦うまく行ってるやつあるからそっち使うために非表示: 直下のdivのclassのd-none %>
+  <div class='items d-none'>
     <% @items.each do |item| %>
       <%= link_to item_path(item.id), class:"item-link" do %>
         <div class='item'>
@@ -26,14 +33,13 @@
             <div class='review-info'>
               <div class="average-score mb-3">
                 <div class="star-rating ml-2">
-                  <div class="star-rating-front" style="width: <%= item.avg_score_percentage %>%">★★★★★</div>
+                  <div class="star-rating-front" style="width: <%= item.review_point_percentage %>%">★★★★★</div>
                   <div class="star-rating-back">★★★★★</div>
                 </div>
-                <div class="average-score-display">
-                  （<%= item.avg_score %>点）
+                <div class="average-score-display ml-2">
+                  <%= item.avg_point %>点(<%= item.reviews_number %>件のレビュー)
                 </div>
               </div>
-              <div class='review-quantity'>　(<%= item.reviews_number %>人)</div>
             </div>
             <%# /評価表示 %>
             <div class='item-price'>
@@ -46,3 +52,138 @@
   </div>
 </div>
 
+<%# 一個下の塊の記述のeach文の真下(class="mb-6"のdivタグところ)のclass名cardを削除したバージョン→ここに写真とか追加していってみる %>
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <% @items.each do |item| %>
+        <div class="card-right-and-left">
+          <div class='card-item-image w-25 mr-3'>
+            <%= image_tag item.image, class:"card-image_photo" if item.image.attached? %>
+          </div>
+          <div class="mb-6 card-right-content w-100 border border-dark">
+            <header class="card-header">
+              <div class="card-header-maker"><%= item.maker %></div>
+              <h3 class="card-header-title">
+                <%= item.name %>
+              </h3>
+              <div class="card-header-price">¥<%= item.price.to_s(:delimited) %></div>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= item.review_point_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                    <%= item.avg_point %>点（<%= item.reviews.count %>件のレビュー）
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <%= link_to item_path(item), class: "button card-footer-item btn-outline-primary" do %>
+                詳細を見る
+              <% end %>
+              <%= link_to compare_item_path(item), class: "button card-footer-item btn-outline-success ml-1" do %>
+                製品を比較する
+              <% end %>
+            </footer>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# 動画で星レビュー調整用（後で消す？） %>
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <% @items.each do |item| %>
+          <div class="card mb-6">
+            <header class="card-header">
+              <p class="card-header-title">
+                <%= item.name %>
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= item.review_point_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                    <%= item.avg_point %>点（<%= item.reviews.count %>件のレビュー）
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <%= link_to item_path(item), class: "button card-footer-item" do %>
+                詳細を見る
+              <% end %>
+              <%= link_to item_path(item, anchor: 'rating-box'), class: "button card-footer-item" do %>
+                レビューを書く
+              <% end %>
+            </footer>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# 繰り返さなかったら星がおかしくならない↓↓↓ %>
+<div class="card-content">
+  <div class="content">
+    <div class="content average-score">
+      <div class="star-rating mb-2">
+        <div class="star-rating-front" style="width: <%= Item.find(1).review_point_percentage %>%">★★★★★</div>
+        <div class="star-rating-back">★★★★★</div>
+      </div>
+      <div class="average-score-display ml-3 pt-2">
+        <%= Item.find(1).avg_point %>点（<%= Item.find(1).reviews.count %>件のレビュー）
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# 繰り返したら星が増えたり改行されたりする↓↓↓ %>
+<% @items.each do |item| %>
+  <div class="card mb-6">
+    <div class="card-content">
+      <div class="content">
+        <div class="content average-score">
+          <div class="star-rating mb-2">
+            <div class="star-rating-front" style="width: <%= item.review_point_percentage %>%">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+          </div>
+          <div class="average-score-display ml-3 pt-2">
+            <%= item.avg_point %>点（<%= item.reviews.count %>件のレビュー）
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% @items.each do |item| %>
+  <div class='review-info'>
+    <div class="average-score mb-3">
+      <div class="star-rating ml-2">
+        <div class="star-rating-front" style="width: <%= item.review_point_percentage %>%">★★★★★</div>
+        <div class="star-rating-back">★★★★★</div>
+      </div>
+      <div class="average-score-display">
+        （<%= item.avg_point %>点）
+      </div>
+    </div>
+    <div class='review-quantity'>　(<%= item.reviews_number %>人)</div>
+  </div>
+<% end %>
