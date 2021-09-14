@@ -21,11 +21,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @reviews = @item.reviews.includes(:user)
+    @reviews = @item.reviews.order('updated_at DESC').includes(:user)
+    @review = Review.new
   end
 
   def search
-    @items = Item.search(params[:keyword])
+    @items = Item.search(params[:keyword]).order('created_at DESC')
   end
 
   def compare

@@ -12,10 +12,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     if @review.save
-      redirect_to item_path(@item.id, anchor: 'reviews'), notice: 'レビューを投稿しました。'
+      redirect_to item_path(@item.id, anchor: 'review-group'), notice: 'レビューを投稿しました。'
     else
+      # @item = Item.find(params[:id])
       flash.now[:alert] = 'レビューを投稿できませんでした。'
-      render :new
+      # render :new
     end
   end
 
