@@ -2,33 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top-page-header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.top-logo {
-  // background-color: lightcoral;
-  width: 80vw;
-  padding: 5px;
-}
-
-.logo-link {
-  text-decoration: none;
-  color: black;
-}
-
-.sign-btn {
-  // background-color: lightyellow;
-  width: 20vw;
-  text-align: right;
-}
-
-.navbar {
-  width: 100vw;
-}
-
 .image-list {
   height: 100px;
   width: 100px;

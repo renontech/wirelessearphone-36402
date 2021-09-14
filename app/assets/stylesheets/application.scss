@@ -39,6 +39,8 @@ ul,li {
   text-align: center;
 } */
 
+// 比較ページ
+
 .compare-form {
   display: flex;
   justify-content: right;
@@ -55,10 +57,34 @@ ul,li {
 }
 
 .item1 .item2 {
-  width: 50%;
+  // width: 50%;
 }
 
 .compare-photo {
-  width: 400px;
+  // width: 400px;
   height: 400px;
+}
+
+// 動画で星レビュー機能
+
+ @import "bulma";
+
+body {
+  min-height: 100vh;
+  color: white;
+  // background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  font-family: sans-serif;
+}
+
+.notification:not(:last-child){
+  margin-bottom: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.button {
+  text-decoration: none;
 }
