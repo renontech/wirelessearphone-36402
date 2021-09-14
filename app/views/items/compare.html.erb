@@ -1,11 +1,12 @@
+<div class="btn btn-outline-secondary ml-5">詳細ページへ戻る</div>
 <%= form_with url: ajax_item_path do |f| %>
-<div class="compare-form" id="hideman">
+<div class="compare-form justify-content-center mb-5" id="hideman">
   <div class="form-group">
     <%= f.collection_select(:num, @items, :id, :name, { include_blank: '選択してください'}, { class: 'form-control', id: "samplePulldown", required: true }) %>
   </div>
   <div class="form-group">
     <button type="button" class="btn"></button>
-    <%= f.submit '実行', class: "btn" %>
+    <%= f.submit '実行', class: "btn btn-outline-primary" %>
   </div>
 </div>
 <% end %>
@@ -16,13 +17,12 @@
       <%= image_tag @item1.image, class:'compare-photo' %>
       <div class='review-info'>
         <div class="average-score mb-3">
-          <div class="star-rating ml-2">
-            <div class="star-rating-front" style="width: <%= @item1.avg_score_percentage %>">★★★★★</div>
+          <div class="star-rating ml-2 d-none">
+            <div class="star-rating-front" style="width: <%= @item1.review_point_percentage %>">★★★★★</div>
             <div class="star-rating-back">★★★★★</div>
           </div>
-          <div class="average-score-display">（<%= @item1.avg_score %>点）</div>
+          <div class="average-score-display ml-3 pt-2"><%= @item1.avg_point %>点(<%= @item1.reviews_number %>件のレビュー)</div>
         </div>
-        <div class='review-quantity'>　(<%= @item1.reviews_number %>人)</div>
       </div>
       <table border='1', width='70%', class='table'>
         <tr><td>名前</td><td><%= @item1.name %></td></tr>
@@ -38,6 +38,6 @@
       </table>
     </div>
   </div>
-  <div class="item2" id="item2">
+  <div class="item2 ml-3" id="item2">
   </div>
 </div>
