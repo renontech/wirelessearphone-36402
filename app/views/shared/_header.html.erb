@@ -1,52 +1,39 @@
-<header class='top-page-header'>
-<%
-=begin%>
-  <h1 class='top-logo'>
-    <%= link_to 'Wireless.com', root_path, class:'logo-link' %></h1>
-  <div class='sign-btn'>
-  <% if user_signed_in? %>
-    <%= link_to current_user.nickname, user_path(current_user.id), class:'link' %>｜｜
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'link' %>
-  <% else %>
-    <%= link_to '新規登録', new_user_registration_path, class:'link' %>/
-    <%= link_to 'ログイン', new_user_session_path, class:'link' %>
-  <% end %>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <p class="navbar-item">
+      <%= link_to root_path, class: "text-decoration-none" do %>
+        <strong class="is-size-3" style="font-family: cursive; color: black;">Wireless_Earphone.com</strong>
+      <% end %>
+    </p>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
-<%
-=end%>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <%= link_to 'Wireless.com', root_path, class:'navbar-brand' %>
-        <%# <a class="navbar-brand" href="#">Hidden brand</a> %>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <p class="navbar-item">ようこそ<%= link_to current_user.nickname, user_path(current_user.id), class:'nav-link' %>さん</p>
+        <% end %>
+        <div class="buttons">
           <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.nickname, user_path(current_user.id), class:'nav-link' %>
-            <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link' %>
-            <%# <a class="nav-link" href="#">Link</a> %>
-          </li>
+            <%= link_to destroy_user_session_path, method: :delete, class: "button" do %>
+              ログアウト
+            <% end %>
           <% else %>
-          <li class="nav-item">
-            <%= link_to '新規登録', new_user_registration_path, class:'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'ログイン', new_user_session_path, class:'nav-link' %>
-          </li>
+            <%= link_to new_user_session_path, class: "button" do %>
+              ログイン
+            <% end %>
+            <%= link_to new_user_registration_path, class: "button" do %>
+              新規登録
+            <% end %>
           <% end %>
-        </ul>
-        <%# <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="イヤホンを探す" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> %>
+        </div>
       </div>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>

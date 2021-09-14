@@ -1,14 +1,19 @@
 <div class='top-page-body'>
-  <%= form_with url: search_items_path, method: :get, local: true, class:"search-form" do |f| %>
-    <%= f.text_field :keyword, placeholder: "イヤホンを検索する", class: "search-input" %>
-    <%= f.submit "検索", class: "search-btn" %>
-  <% end %>
-  <% if user_signed_in? %>
-    <div class='regis-item'>
-      <%= link_to 'イヤホンを追加する', new_item_path, class:'link' %>
-    </div>
-  <% end %>
-  <%# イヤホン一覧 %>
+  <div class="index-top-menu">
+    <%= form_with url: search_items_path, method: :get, local: true, class:"search-form row g-3 ml-5" do |f| %>
+      <div class="col-auto">
+        <%= f.text_field :keyword, placeholder: "イヤホンを検索する", class: "search-input form-control" %>
+      </div>
+      <div class="col-auto">
+        <%= f.submit "検索", class: "search-btn btn btn-secondary mb-3" %>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <div class='regis-item'>
+        <%= link_to 'イヤホンを追加する', new_item_path, class:'btn btn-outline-primary' %>
+      </div>
+    <% end %>
+  </div>
   <div class='items'>
     <% @items.each do |item| %>
       <%= link_to item_path(item.id), class:"item-link" do %>
@@ -27,11 +32,11 @@
             <div class='review-info'>
               <div class="average-score mb-3">
                 <div class="star-rating ml-2">
-                  <div class="star-rating-front" style="width: <%= item.avg_score_percentage %>%">★★★★★</div>
+                  <div class="star-rating-front" style="width: <%= item.review_point_percentage %>%">★★★★★</div>
                   <div class="star-rating-back">★★★★★</div>
                 </div>
                 <div class="average-score-display">
-                  （<%= item.avg_score %>点）
+                  （<%= item.avg_point %>点）
                 </div>
               </div>
               <div class='review-quantity'>　(<%= item.reviews_number %>人)</div>
@@ -45,5 +50,4 @@
       <% end %>
     <% end %>
   </div>
-  <%# /イヤホン一覧 %>
 </div>

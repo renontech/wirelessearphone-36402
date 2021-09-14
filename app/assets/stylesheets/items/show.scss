@@ -1,12 +1,10 @@
 .show-main {
-  // background-color: lightseagreen;
   padding: 20px;
   margin: 20px auto;
   width: 90vw;
 }
 
 .basic-info {
-  // background-color: lightskyblue;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,7 +12,6 @@
 }
 
 .image {
-  // background-color: lightyellow;
   width: 40%;
   margin: 30px;
   height: 80%;
@@ -26,45 +23,51 @@
   width: 100%;
 }
 
-.text {
-  // background-color: lightpink;
+.info-text {
   width: 60%;
   margin-right: 20px;
   height: 90%;
 }
 
-// .maker {
-//   background-color: lime;
-// }
+.maker {
+}
 
-// .name {
-//   background-color: orange;
-// }
+.name {
+}
 
-// .price {
-//   background-color: royalblue;
-// }
+.price {
+}
 
 .point {
-  // background-color: orchid;
   display: flex;
   justify-content: center;
 }
 
+.favorite-btn {
+  text-decoration: none;
+}
+
 .table-title {
-  // margin: 0 auto 0 230px;
 }
 
 .table {
   margin: 0 auto;
 }
 
+td {
+}
+
+.reviews {
+  display: flex;
+  justify-content: space-between;
+}
+
 .review-info {
-  font-size: 20px;
 }
 
 .show-review-text {
   width: 500px;
   height: 250px;
-  border: 1px solid black;
+  border: 1px solid #ccc;
+  flex-wrap: wrap;
 }

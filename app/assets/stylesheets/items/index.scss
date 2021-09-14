@@ -1,9 +1,11 @@
-.top-page-body {
-  // background-color: lightgrey;
+.index-top-menu {
+  display: flex;
+}
+.regis-item {
+  margin-left: auto;
 }
 
 .items {
-  // background-color: lightseagreen;
   padding: 20px;
   margin: 20px;
   width: 50vw;
@@ -15,7 +17,6 @@
 }
 
 .item {
-  // background-color: lightskyblue;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -24,7 +25,6 @@
 }
 
 .item-image {
-  // background-color: lightyellow;
   width: 20%;
   margin: 20px;
   height: 80%;
@@ -38,30 +38,57 @@
 }
 
 .item-info {
-  // background-color: lightpink;
   width: 80%;
   margin-right: 20px;
   height: 90%;
 }
 
 .item-maker {
-  // background-color: lime;
 }
 
 .item-name {
-  // background-color: orange;
 }
 
 .review-info {
-  // background-color: orchid;
   display: flex;
 }
 
-// 評価表示
-.average-score {
-  display: flex; // ★と点数を横並びにする
-  justify-content: center;
-}
+// // 評価表示
+// .average-score {
+//   display: flex; // ★と点数を横並びにする
+//   justify-content: center;
+// }
+
+// .star-rating {
+//   position: relative;
+//   width: 5em;
+//   height: 1em;
+//   font-size: 25px;
+// }
+
+// .star-rating-front {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   overflow: hidden; // 指定幅からはみ出した部分を隠す。
+//   white-space: nowrap; // widthが足りない時に、折り返さないようにする。
+//   color: #ffcc33;
+//   height: 25px;
+// }
+
+// .star-rating-back {
+//   color: #ccc;
+// }
+// // /評価表示
+
+// // ↓多分Bootstrapでトップページ実装しようとした時の名残
+
+// .card-group {
+//   display: inline-block;
+//   justify-content: space-around;
+// }
+
+// 動画で星レビュー機能トップページ装飾
 
 .star-rating {
   position: relative;
@@ -74,27 +101,25 @@
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden; // 指定幅からはみ出した部分を隠す。
-  white-space: nowrap; // widthが足りない時に、折り返さないようにする。
-  color: #ffcc33;
-  height: 25px;
+  overflow: hidden;
+  color: #fc3;
 }
 
 .star-rating-back {
   color: #ccc;
 }
-// /評価表示
 
-.item-price {
-  // background-color: royalblue;
+.average-score {
+  display: flex;
 }
 
-.top-page-footer {
-  // background-color: lightsalmon;
+.average-score-display {
+  font-size: 16px;
 }
 
-.card-group {
-  display: inline-block;
-  justify-content: space-around;
-}
+// イヤホン一覧Bootstrapで実装しちゃおう
 
+.card-right-and-left {
+  display: flex;
+  justify-content: right;
+}
