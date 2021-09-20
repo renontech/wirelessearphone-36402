@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
-      redirect_to item_path(@item.id), notice: 'レビューを削除しました。'
+      redirect_to item_path(@item.id, anchor: 'review-group'), notice: 'レビューを削除しました。'
     else
       flash.now[:alert] = 'レビューを削除できませんでした。'
       render 'items#show'
