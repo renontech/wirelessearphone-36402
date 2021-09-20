@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :review_find, only: [:edit, :update, :destroy]
   before_action :access_block, only: [:edit, :update, :destroy]
-  # before_action :redirect_resque
 
   def new
     @review = Review.new
@@ -14,9 +13,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to item_path(@item.id, anchor: 'review-group'), notice: 'レビューを投稿しました。'
     else
-      # @item = Item.find(params[:id])
       flash.now[:alert] = 'レビューを投稿できませんでした。'
-      # render :new
     end
   end
 
@@ -60,13 +57,5 @@ class ReviewsController < ApplicationController
       redirect_to root_path
     end
   end
-
-  # def redirect_resque
-  #   begin
-  #     @item = Item.find(params[:item_id])
-  #   rescue
-  #     render :new
-  #   end
-  # end
 
 end
