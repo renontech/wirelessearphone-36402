@@ -6,6 +6,7 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
+//= require turbolinks
 //= require_tree .
 //= require jquery
 //= require jquery-ujs
