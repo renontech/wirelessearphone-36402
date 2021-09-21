@@ -1,4 +1,4 @@
-<div class="btn btn-outline-secondary ml-5">詳細ページへ戻る</div>
+<%= link_to '詳細ページへ戻る', item_path(@item1.id), class:'btn btn-outline-secondary ml-5' %>
 <%= form_with url: ajax_item_path do |f| %>
 <div class="compare-form justify-content-center mb-5" id="hideman">
   <div class="form-group">
