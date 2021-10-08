@@ -8,7 +8,7 @@ WirelessEarphone.com
 https://wirelessearphone-36402.herokuapp.com/
 
 # テスト用アカウント
-Basic認証：ユーザー名「admin」パスワード「2222」
+Basic認証：ユーザー名「admin」パスワード「2222」  
 ログイン用アカウント：メールアドレス「wireless@gmail.com」パスワード「wireless1」
 
 # 利用方法
@@ -19,17 +19,18 @@ Basic認証：ユーザー名「admin」パスワード「2222」
 2. 気になっているワイヤレスイヤホンの違いを簡単に比較することができるようにすること
 
 # 洗い出した要件
-製品一覧表示機能
-製品検索機能
-製品追加登録機能
-製品詳細表示機能
-レビュー投稿・編集・削除機能
-製品評価平均表示機能
-製品お気に入り登録機能
-製品比較機能
+製品一覧表示機能  
+製品検索機能  
+製品追加登録機能  
+製品詳細表示機能  
+レビュー投稿・編集・削除機能  
+製品評価平均表示機能  
+製品お気に入り登録機能  
+製品比較機能  
 ユーザー管理機能
 
 # 実装した機能についての画像やGIFおよびその説明
+※以下の画像とGIFはローカル環境のものです。
 ## 製品一覧表示機能
 [![Image from Gyazo](https://i.gyazo.com/b507492cd6573340ff6424f141b46f68.jpg)](https://gyazo.com/b507492cd6573340ff6424f141b46f68)
 
@@ -63,6 +64,12 @@ Basic認証：ユーザー名「admin」パスワード「2222」
 # 実装予定の機能
 
 # ローカルでの動作方法
+Railsバージョン6.0.0  
+クローン後下記のコマンドを実行してください
+- bundle install
+- yarn install
+- rails db:create
+- rails db:migrate
 
 # データベース設計
 
@@ -97,8 +104,8 @@ has_many :reviews
 
 ### Association
 
-belongs_to :user
-belongs_to :item
+belongs_to :user  
+belongs_to :item  
 has_many :comments
 
 ## commentsテーブル
@@ -111,7 +118,7 @@ has_many :comments
 
 ### Association
 
-belongs_to :user
+belongs_to :user  
 belongs_to :review
 
 ## usersテーブル
@@ -124,5 +131,5 @@ belongs_to :review
 
 ### Association
 
-has_many :reviews
+has_many :reviews  
 has_many :comments
