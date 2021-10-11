@@ -13,31 +13,10 @@
  *= require_tree .
  *= require_self
  */
- 
-/* リセットCSS */
-/* body {
-  font-size: 14px;
-  color: #333;
-  margin: 0 auto;
-}
-h1,h2,h3,h4,h5,h6,p {
-  padding: 10px 0;
-  margin: 0;
-}
-
-ul,li {
-  padding: 0;
-  margin: 0;
-} */
-/* /リセットCSS */
 
 .link {
   text-decoration: none;
 }
-
-/* .error-messages {
-  text-align: center;
-} */
 
 // 比較ページ
 
@@ -57,22 +36,19 @@ ul,li {
 }
 
 .item1 .item2 {
-  // width: 50%;
 }
 
 .compare-photo {
-  // width: 400px;
   height: 400px;
 }
 
-// 動画で星レビュー機能
+// 星レビュー機能
 
  @import "bulma";
 
 body {
   min-height: 100vh;
   color: white;
-  // background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
   font-family: sans-serif;
 }
 

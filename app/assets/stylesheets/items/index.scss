@@ -53,42 +53,7 @@
   display: flex;
 }
 
-// // 評価表示
-// .average-score {
-//   display: flex; // ★と点数を横並びにする
-//   justify-content: center;
-// }
-
-// .star-rating {
-//   position: relative;
-//   width: 5em;
-//   height: 1em;
-//   font-size: 25px;
-// }
-
-// .star-rating-front {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   overflow: hidden; // 指定幅からはみ出した部分を隠す。
-//   white-space: nowrap; // widthが足りない時に、折り返さないようにする。
-//   color: #ffcc33;
-//   height: 25px;
-// }
-
-// .star-rating-back {
-//   color: #ccc;
-// }
-// // /評価表示
-
-// // ↓多分Bootstrapでトップページ実装しようとした時の名残
-
-// .card-group {
-//   display: inline-block;
-//   justify-content: space-around;
-// }
-
-// 動画で星レビュー機能トップページ装飾
+// 星レビュー機能トップページ装飾
 
 .star-rating {
   position: relative;
@@ -117,7 +82,7 @@
   font-size: 16px;
 }
 
-// イヤホン一覧Bootstrapで実装しちゃおう
+// イヤホン一覧をBootstrapで実装
 
 .card-right-and-left {
   display: flex;
