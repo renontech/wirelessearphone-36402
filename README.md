@@ -3,6 +3,7 @@ WirelessEarphone.com
 
 # 概要
 あらゆるワイヤレスイヤホンについての情報が載っている「製品まとめ・比較アプリ」
+※現在ローカルでのみ正常に作動
 
 # URL
 https://wirelessearphone-36402.herokuapp.com/
